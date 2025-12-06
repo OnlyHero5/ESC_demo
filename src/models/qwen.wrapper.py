@@ -1,3 +1,8 @@
+"""
+Qwen3封装类, 支持Chat模式和训练模式
+"""
+
+
 import torch
 from typing import List, Dict, Optional, Union
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
