@@ -184,22 +184,26 @@ class QwenChatModel:
         Returns:
             Dict[str, torch.Tensor]: 包含 input_ids, attention_mask 字典
         """
-        text = self.tokenizer.apply_chat_template(
-            messages,
-            tokenize=False,
-            add_generation_prompt=True,
-            enable_thinking=enable_thinking,
+        encoded = self.tokenizer.apply_chat_template(
+        messages,
+        tokenize=True,
+        add_generation_prompt=True,
+        enable_thinking=enable_thinking,
+        return_tensors="pt",      # 让模板直接返回 torch.Tensor
+        padding=True,
+        truncation=True,
+        max_length=2048,
         )
 
-        inputs = self.tokenizer(
-            text,
-            return_tensors="pt",
-            padding=True,
-            truncation=True,
-            max_length=2048,
-        )
-        
-        return inputs
+        if isinstance(encoded, torch.Tensor):
+            attention_mask = torch.ones_like(encoded)
+            return {
+            "input_ids": encoded,
+            "attention_mask": attention_mask,
+            }
+
+    # 某些版本会返回 BatchEncoding；这里显式转换成 dict
+        return {k: torch.tensor(v) if not torch.is_tensor(v) else v for k, v in encoded.items()}
     
 
 
