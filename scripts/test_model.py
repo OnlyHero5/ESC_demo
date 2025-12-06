@@ -56,7 +56,7 @@ def test_single_turn_chat(model: QwenChatModel):
         },
         {
             "role": "user",
-            "contenet": "我最近工作压力很大，感觉很焦虑，晚上经常失眠。"
+            "content": "我最近工作压力很大，感觉很焦虑，晚上经常失眠。"
         }
     ]
 
@@ -108,8 +108,8 @@ def test_multi_turn_chat(model: QwenChatModel):
         if msg["role"]  != "system":
             print(f" {role}: {msg['content']}")
         
-        print(f"\n助手（新回复）： {response}")
-        print("\n 多轮对话测试通过！ \n")
+    print(f"\n助手（新回复）： {response}")
+    print("\n 多轮对话测试通过！ \n")
 
 def test_lora_application(model: QwenChatModel):
     """测试LoRA应用"""
@@ -180,7 +180,7 @@ def interactive_chat(model: QwenChatModel):
         messages.append(
             {
                 "role": "assistant",
-                "context": response
+                "content": response
             }
         )
         

@@ -5,7 +5,7 @@ model:
   device_map: "auto"
   load_in_4bit: false
   load_in_8bit: false
-  use_flash_attention: true
+  use_flash_attention: false
 
 
 
