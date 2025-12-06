@@ -1,0 +1,43 @@
+model:
+  name: "Qwen3-4B"
+  path: "models/Qwen3-4B"
+  torch_dtype: "bfloat16"
+  device_map: "auto"
+  load_in_4bit: false
+  load_in_8bit: false
+  use_flash_attention: true
+
+
+
+lora:
+  enabled: true
+  r: 16
+  alpha: 32
+  dropout: 32
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj" 
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+
+
+generation:
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  do_sample: true
+  enable_thinking: false
+
+system_prompt: |
+  你是一个专业的情感支持助手。你的目标是：
+  1. 认真倾听用户的困扰和情绪
+  2. 表达真诚的理解和共情
+  3. 使用恰当的情感支持策略（如提问、释义、肯定、建议等）
+  4. 帮助用户探索问题、舒缓情绪、找到解决方向
+  
+  请用温暖、专业、真诚的方式与用户交流。
