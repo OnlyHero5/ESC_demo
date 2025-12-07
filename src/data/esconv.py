@@ -454,9 +454,85 @@ def get_sample_dialog(
 
 
 
+#========================统计分析函数============
+def analyze_esconv_dataset(dataset: Dataset) -> Dict[str, Any]:
+    """数据统计
+
+    Args:
+        dataset (Dataset):
+    Returns:
+        Dict[str, Any]: 
+    """
+    stats = {
+        "splits": {},
+        "strategies": {},
+        "emotion_types": {},
+        "problem_types": {},
+        "turn_lengths": [],
+        "response_lengths": []
+    }
+
+    for split_name in dataset.keys():
+        split_data = dataset[split_name]
+        stats["splits"][split_name] = len(split_data)
+
+        for sample in split_data:
+            # 统计策略分布
+            strategy = sample["strategy"]
+            if strategy:
+                stats["strategies"][strategy] = stats["strategies"].get(strategy, 0) + 1
+            # 统计情感类型
+            emotion = sample.get("emotion_type", "")
+            if emotion:
+                stats["emotion_types"][emotion] = stats["emotion_types"].get(emotion, 0) + 1
+            # 统计问题类型
+            problem = sample.get("problem_type", "")
+            if emotion:
+                stats["problem_types"][problem] = stats["problem_types"].get(problem, 0) + 1
+
+            # 统计对话轮次
+            messages = json.loads(sample["messages"])
+            stats["turn_lengths"].append(len(messages))
+
+            # 统计回复长度
+            stats["response_lengths"].append(len(sample["target_response"]))
+            
+    # 计算平均值
+    if stats["turn_lengths"]:
+        stats["avg_turn_length"] = sum(stats["turn_lengths"]) / len(stats["turn_lengths"])
+    if stats["response_lengths"]:
+        stats["avg_response_length"] = sum(stats["response_lengths"]) / len(stats["response_lengths"])
+    
+    return stats
 
 
 
+def print_dataset_stats(stats: Dict[str, Any]):
+    """打印数据集统计信息"""
+    print("\n" + "="*60)
+    print("ESConv 数据集统计")
+    print("="*60)
+
+    print("\n 【数据划分】")
+    for split, count in stats["splits"].items():
+        print(f"    {split}: {count} 样本")
+    
+    print("\n 【平均统计】")
+    print(f" 平均上下文轮次：{stats.get('avg_turn_length', 0):.1f}")
+    print(f" 平均回复长度： {stats.get('avg_response_length', 0):.1f} 字符")
+
+    print("\n 【策略分布】")
+    sorted_strategies = sorted(stats["strategies"].items(), key=lambda x: x[1], reverse=True)
+    total = sum(stats["strategies"].values())
+    for strategy, count in sorted_strategies[:10]:
+        pct = 100 * count / total
+        strategy_cn = STARTEGY_MAP.get(strategy, strategy)
+        print(f" {strategy_cn}: {count} {pct:.1f}%")
+    
+    print("\n 【情感类型分布】")
+    sorted_emotions = sorted(stats["emotion_types"].items(), key=lambda x: x[1], reverse=True)
+    for emotion, count in sorted_emotions[:len(sorted_emotions)]:
+        print(f" {emotion}: {count}")
 
 if __name__ == '__main__':
     import sys
@@ -467,6 +543,10 @@ if __name__ == '__main__':
         data_path="data/esconv/raw/ESConv.json",
         save_processed=True
     )
+
+    # 打印统计信息
+    stats = analyze_esconv_dataset(dataset)
+    print_dataset_stats(stats)
 
     print("\n" + "=" * 60)
     print("📝 样本示例")
