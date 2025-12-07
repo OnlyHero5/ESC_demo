@@ -43,3 +43,5 @@ Thumbs.db
 
 # Project specific
 models/*
+data/esconv/processed/*
+data/extes/processed/*
