@@ -49,6 +49,25 @@ def load_extes_raw(data_path: str) -> List[Dict]:
     return data
 
 
+def _clean_text(value):
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, dict):
+        for key in ("AI", "Response", "response", "text", "content"):
+            v = value.get(key)
+            if isinstance(v, str):
+                return v.strip()
+    return ""
+
+def _clean_strategy(item, ai_value):
+    for source in (ai_value if isinstance(ai_value, dict) else {}, item):
+        if not isinstance(source, dict):
+            continue
+        for key in ("AI strategy", "AI Strategy", "strategy"):
+            v = source.get(key)
+            if isinstance(v, str):
+                return v.strip()
+    return ""
 
 def parse_extes_dialog(dialog: Dict, index: int) -> Dict[str, Any]:
     """解析单个对话
@@ -73,7 +92,7 @@ def parse_extes_dialog(dialog: Dict, index: int) -> Dict[str, Any]:
     for item in content:
         if "User" in item:
             #用户信息
-            text = item["User"].strip()
+            text = _clean_text(item["User"])
             if text:
                 turns.append({
                     "speaker": "seeker",
@@ -82,8 +101,9 @@ def parse_extes_dialog(dialog: Dict, index: int) -> Dict[str, Any]:
                 })
         elif "AI" in item:
             #AI回复
-            text = item["AI"].strip()
-            strategy = item.get("AI strategy", "").strip()
+            ai_val = item["AI"]
+            text = _clean_text(ai_val)
+            strategy = _clean_strategy(item, ai_val)
             if text:
                 turns.append({
                     "speaker": "supporter",
@@ -145,7 +165,7 @@ def build_rl_samples(
 
                 if seeker_count >= min_context_turns:
                     # 构建 context消息 （限制最大轮次）
-                    context_history = history[-max_context_turns]
+                    context_history = history[-max_context_turns:]
 
                     # 构建消息列表
                     messages = [
@@ -166,7 +186,7 @@ def build_rl_samples(
                         "dialog_id": dialog["dialog_id"],
                         "turn_index": i,
                         "messages": messages,
-                        "reference_respnse": turn["text"],
+                        "reference_response": turn["text"],
                         "strategy": turn["strategy"],
                         "scene": dialog["scene"],
                         "context_turns": len(context_history)
@@ -519,7 +539,7 @@ if __name__ == "__main__":
     #处理RL数据集
     dataset = load_extes(
         data_path="data/extes/raw/ExTES.json",
-        use_esconv_fallback=True,
+        use_esconv_fallback=False,
         save_processed=True
     )
 
