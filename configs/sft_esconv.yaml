@@ -63,7 +63,7 @@ training:
   bf16: true
   fp16: false
   gradient_checkpointing: true
-  dataloader_num_workers: 4
+  dataloader_num_workers: 16
   remove_unused_columns: false
 
   # 随机种子
