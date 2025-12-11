@@ -1,0 +1,234 @@
+"""
+在ESConv测试集上评测模型性能
+"""
+
+import sys
+import json
+import argparse
+from pathlib import Path
+from tqdm import tqdm
+
+import torch
+
+# 添加根目录
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
+from datasets import load_from_disk
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import PeftModel
+
+from src.eval.metrics import compute_all_metrics, print_metrics
+
+def load_model(
+        model_path: str,
+        base_model_path: str = None,
+        device: str = "cuda"
+):
+    """_summary_
+
+    Args:
+        model_path (str): 模型路径，LoRA权重路径
+        base_model_path (str, optional): LoRA微调下的基础模型路径. Defaults to None.
+        device (str, optional): 运行设备. Defaults to "cuda".
+    """
+    
+    model_path = Path(model_path)
+
+    # 检查是否是lora
+    is_lora = (model_path / "adapter_config.json").exists()
+
+    if is_lora and base_model_path:
+        print("加载LoRA模型...")
+        print(f"基础模型：{base_model_path}")
+        print(f"LoRA 权重：{model_path}")
+
+        # 加载基础模型
+        base_model = AutoModelForCausalLM.from_pretrained(
+            base_model_path,
+            torch_dtype=torch.bfloat16,
+            device_map="auto",
+            trust_remote_code=True
+        )
+
+        # 加载LoRA 权重
+        model = PeftModel.from_pretrained(base_model, str(model_path))
+
+        # 加载 tokenizer
+        tokenizer = AutoTokenizer.from_pretrained(
+            base_model_path,
+            trust_remote_code=True,
+            padding_side="left"
+        )
+    else:
+        print(f"加载完整模型：{model_path}")
+
+        model = AutoModelForCausalLM.from_pretrained(
+            str(model_path),
+            torch_dtype=torch.bfloat16,
+            device_map="auto",
+            trust_remote_code=True
+        )
+        tokenizer = AutoTokenizer.from_pretrained(
+            base_model_path,
+            trust_remote_code=True,
+            padding_side="left"
+        )
+    
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    
+    model.eval()
+
+    return model, tokenizer
+
+def generate_responses(
+        model,
+        tokenizer,
+        dataset,
+        max_samples: int = None,
+        max_new_tokens: int = 512,
+        temperature: float = 0.7,
+        top_p: float = 0.9
+):
+    """生成回复
+
+    Args:
+        model (_type_): 模型
+        tokenizer (_type_): 分词器
+        dataset (_type_): 数据集
+        max_samples (int, optional): 最大样本数. Defaults to None.
+        max_new_tokens (int, optional): 最大生成长度. Defaults to 512.
+        temperature (float, optional): 采样温度. Defaults to 0.7.
+        top_p (float, optional): top-p采样. Defaults to 0.9.
+    """
+
+    references = []
+    hypotheses = []
+
+    if max_samples:
+        dataset = dataset.select(range(min(max_samples, len(dataset))))
+
+    for sample in tqdm(dataset, desc="生成回复"):
+        # 解析messages
+        messages = json.loads(sample["messages"])
+        target_response = sample["target_response"]
+
+        # 构建输入
+        prompt = tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
+        inputs = tokenizer(
+            prompt,
+            return_tensors="pt",
+            truncation=True,
+            max_length=1536
+        )
+        inputs = {
+            k: v.to(model.device) for k, v in inputs.items()
+        }
+
+        # 生成
+        with torch.no_grad():
+            outputs = model.generate(
+                **inputs,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                top_p=top_p,
+                do_sample=True,
+                pad_token_id=tokenizer.pad_token_id,
+                eos_token_id=tokenizer.eos_token_id
+            )
+
+        # 解码
+        generated_ids = outputs[0][inputs["input_ids"].shape[1]:]
+        generated_text = tokenizer.decode(generated_ids, skip_special_tokens=True)
+
+        references.append(target_response)
+        hypotheses.append(generated_text)
+    
+    return references, hypotheses
+
+def main():
+    parser = argparse.ArgumentParser(description="模型评测")
+    parser.add_argument("--model_path", type=str, required=True, help="模型路径")
+    parser.add_argument("--base_model_path", type=str, default=None, help="基础模型路径（LoRA模式）")
+    parser.add_argument("--data_path", type=str, default="data/esconv/processed", help="数据集路径")
+    parser.add_argument("--split", type=str, default="test", help="数据集划分")
+    parser.add_argument("--max_samples", type=int, default=None, help="最大样本数")
+    parser.add_argument("--output_path", type=str, default=None, help="结果保存路径")
+    parser.add_argument("--include_bertscore", action="store_true", help="是否计算 BERTScore")
+
+    args = parser.parse_args()
+
+    print("="*60)
+    print("ESC 模型评测")
+    print("="*60)
+
+    # 加载模型
+    model, tokenizer = load_model(args.model_path,
+                                  args.base_model_path
+                                  )
+    # 加载数据集
+    print(f"\n加载数据集：{args.data_path}")
+    dataset = load_from_disk(args.data_path)
+    eval_dataset = dataset[args.split]
+    print(f"评测样本数：{min(args.max_samples, len(eval_dataset)) if args.max_samples else len(eval_dataset)}")
+
+    # 生成回复
+    print("\n 生成回复...")
+    references, hypotheses = generate_responses(
+        model,
+        tokenizer,
+        eval_dataset,
+        max_samples=args.max_samples
+    )
+
+    # 计算指标
+    print("\n计算评测指标...")
+    metrics = compute_all_metrics(
+        references,
+        hypotheses,
+        include_bertscore=args.include_bertscore
+    )
+    print_metrics(metrics)
+
+    # 保存结果
+    if args.output_path:
+        output_path = Path(args.output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        results = {
+            "model_path": args.model_path,
+            "data_path": args.data_path,
+            "split": args.split,
+            "num_samples": len(references),
+            "metrics": metrics
+        }
+
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+        
+        print(f"\n结果已保存到：{output_path}")
+
+    # 保存生成样本
+    samples_path = Path(args.output_path).parent / "samples.json" if args.output_path else None
+    if samples_path:
+        samples = []
+        for i, (ref, hyp) in enumerate(zip(references[:100], hypotheses[:100])):
+            samples.append({
+                "index": i,
+                "reference": ref,
+                "hypothesis": hyp
+            })
+        
+        with open(samples_path, "w", encoding="utf-8") as f:
+            json.dump(samples, f, ensure_ascii=False, indent=2)
+        
+        print(f"生成样本已保存到：{samples_path}")
+
+
+if __name__ == "__main__":
+    main()
