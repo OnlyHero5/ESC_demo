@@ -45,3 +45,4 @@ Thumbs.db
 models/*
 data/esconv/processed/*
 data/extes/processed/*
+outputs/*
