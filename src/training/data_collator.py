@@ -89,7 +89,8 @@ class ESCSFTDataCollator:
         prompt_text = self.tokenizer.apply_chat_template(
             messages,
             tokenize=False,
-            add_generation_prompt=True
+            add_generation_prompt=True,
+            enable_thinking=True
         )
         prompt_ids = self.tokenizer.encode(
             prompt_text,
