@@ -208,6 +208,7 @@ def compute_all_metrics(
 
     # Distinct
     distinct_scores = compute_distinct(hypotheses)
+    metrics.update(distinct_scores)
 
     # BERTScore
     if include_bertscore:
