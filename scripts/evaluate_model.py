@@ -70,7 +70,7 @@ def load_model(
             trust_remote_code=True
         )
         tokenizer = AutoTokenizer.from_pretrained(
-            base_model_path,
+            model_path,
             trust_remote_code=True,
             padding_side="left"
         )
