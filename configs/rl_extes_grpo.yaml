@@ -84,3 +84,10 @@ training:
 logging:
   use_tensorboard: true
   tensorboard_dir: "outputs/qwen3-extes-grpo/tensorboard"
+
+# VLLM
+vllm:
+  enabled:true
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.5
+  max_model_len: 2560

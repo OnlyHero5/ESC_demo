@@ -205,6 +205,7 @@ def create_grpo_config(config: Dict[str, Any]) -> GRPOConfig:
     grpo_config = config["grpo"]
     log_config = config.get("logging", {})
     data_config = config["data"]
+    vllm_cfg = config["vllm"]
 
     output_dir = train_config["output_dir"]
     tensorboard_dir = log_config.get("tensorboard_dir", f"{output_dir}/tensorboard")
@@ -222,6 +223,12 @@ def create_grpo_config(config: Dict[str, Any]) -> GRPOConfig:
         max_prompt_length=data_config.get("max_prompt_length", 1024),
         max_completion_length=data_config.get("max_completion_length", 256),
         beta=grpo_config.get("beta", 0.04),
+        top_p=grpo_config.get("top_p", 0.9),
+        top_k=grpo_config.get("top_k", 50),
+        use_vllm=vllm_cfg.get("enabled", True),
+        vllm_tensor_parallel_size=vllm_cfg.get("tensor_parallel_size", 1),
+        vllm_gpu_memory_utilization=vllm_cfg.get("tensor_parallel_size", 0.5),
+        vllm_max_model_len=vllm_cfg.get("max_model_len", data_config.get("max_prompt_length", 2048) + data_config.get("max_completion_length", 512)),
         
         # 训练参数
         num_train_epochs=train_config.get("num_epochs", 1),
