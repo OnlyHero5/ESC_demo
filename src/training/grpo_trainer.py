@@ -151,7 +151,7 @@ def load_rl_dataset(config: Dict[str, Any], tokenizer) -> Dataset:
     """加载并处理RL 数据集"""
     data_config = config["data"]
     data_path = data_config["train_path"]
-    max_prompt_length = data_config.get("max_prompt_length", 1024),
+    max_prompt_length = data_config.get("max_prompt_length", 1024)
 
     logger.info(f"加载RL数据集：{data_path}")
     dataset = load_from_disk(data_path)
