@@ -317,7 +317,11 @@ def get_scorer_instance(config: Dict[str, Any] = None):
     
     return ScorerContainer._instance
 
-
+def _apply_clip(value: float, scorer) -> float:
+    """应用奖励裁剪"""
+    if scorer.reward_clip:
+        return max(-scorer.reward_clip, min(scorer.reward_clip, value))
+    return value
 
 def create_reward_functions(config: Dict[str, Any]) -> List[Any]:
     
@@ -348,11 +352,18 @@ def bleu_reward_func(completions: List[str], references: List[str], **kwargs) ->
 
     for com, ref in zip(completions, refs):
         raw_score = scorer.compute_bleu_reward(com, ref)
-        rewards.append((raw_score/100.0) * weight)
+        # 应用缩放
+        if scorer.scale_rewards:
+            r = (raw_score / 100.0) * weight
+        else:
+            r = raw_score * weight
+        # 应用裁剪
+        r = _apply_clip(r, scorer)
+        rewards.append(r)
     
     return rewards
 
-def rouge_reward_func(completions: List[str], references: List[str], **kwargs) -> List[str]:
+def rouge_reward_func(completions: List[str], references: List[str], **kwargs) -> List[float]:
     scorer = get_scorer_instance()
     weight = scorer.reward_weights.get("rouge", 0.0)
     rewards = []
@@ -361,7 +372,14 @@ def rouge_reward_func(completions: List[str], references: List[str], **kwargs) -
 
     for com, ref in zip(completions, refs):
         raw_score = scorer.compute_rouge_reward(com, ref)
-        rewards.append((raw_score/100.0) * weight)
+        # 应用缩放
+        if scorer.scale_rewards:
+            r = (raw_score / 100.0) * weight
+        else:
+            r = raw_score * weight
+        # 应用裁剪
+        r = _apply_clip(r, scorer)
+        rewards.append(r)
     
     return rewards
 
@@ -372,7 +390,15 @@ def distinct_reward_func(completions: List[str], **kwargs) -> List[float]:
 
     for com in completions:
         raw_score = scorer.compute_distinct_reward(com)
-        rewards.append((raw_score / 100) * weight)
+        # 应用缩放
+        if scorer.scale_rewards:
+            r = (raw_score / 100.0) * weight
+        else:
+            r = raw_score * weight
+        # 应用裁剪
+        r = _apply_clip(r, scorer)
+        rewards.append(r)
+    
     
     return rewards
     
@@ -383,11 +409,18 @@ def length_reward_func(completions: List[str], **kwargs) -> List[float]:
 
     for com in completions:
         raw_score = scorer.compute_length_penalty(com)
-        rewards.append((raw_score / 50.0) * weight)
+        # 应用缩放（length_penalty 范围约 -50 ~ +10，用 50 归一化）
+        if scorer.scale_rewards:
+            r = (raw_score / 50.0) * weight
+        else:
+            r = raw_score * weight
+        # 应用裁剪
+        r = _apply_clip(r, scorer)
+        rewards.append(r)
     
     return rewards
     
-def coherence_reward_func(completions: List[str], prompts: List[str],**kwargs) -> List[float]:
+def coherence_reward_func(completions: List[str], prompts: List[str] = None,**kwargs) -> List[float]:
 
     scorer = get_scorer_instance()
     weight = scorer.reward_weights.get("coherence", 0.0)
@@ -396,7 +429,14 @@ def coherence_reward_func(completions: List[str], prompts: List[str],**kwargs) -
     ctxs = prompts if prompts else [None]*len(completions)
     for com, ctx in zip(completions, ctxs):
         raw_score = scorer.compute_coherence_reward(com, ctx)
-        rewards.append((raw_score/50.0) * weight)
+        # 应用缩放（coherence 范围约 0 ~ 70+，用 50 归一化）
+        if scorer.scale_rewards:
+            r = (raw_score / 50.0) * weight
+        else:
+            r = raw_score * weight
+        # 应用裁剪
+        r = _apply_clip(r, scorer)
+        rewards.append(r)
 
     return rewards
 

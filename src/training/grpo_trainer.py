@@ -118,7 +118,7 @@ def apply_lora_for_rl(model, config: Dict[str, Any]):
     """
     lora_config = config.get("lora")
 
-    if not lora_config.get("enable", True):
+    if not lora_config.get("enabled", True):
         logger.info("LoRA未启用， 使用全参数训练")
         return model
 
