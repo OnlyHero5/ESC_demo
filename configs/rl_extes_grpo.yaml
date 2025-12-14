@@ -26,8 +26,8 @@ lora:
 # 数据配置
 data:
   train_path: "data/extes/processed"
-  max_prompt_length: 1024
-  max_completion_length: 256
+  max_prompt_length: 2048
+  max_completion_length: 512
 
 # GRPO
 grpo:
