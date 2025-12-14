@@ -161,7 +161,7 @@ def load_rl_dataset(config: Dict[str, Any], tokenizer) -> Dataset:
 
     def process_sample(sample):
         """处理单个样本， 构建prompt 并保留 references"""
-        if isinstance(sample["messsages"], str):
+        if isinstance(sample["messages"], str):
             messages = json.loads(sample["messages"])
         else:
             messages = sample["messages"]
