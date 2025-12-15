@@ -227,8 +227,8 @@ def create_grpo_config(config: Dict[str, Any]) -> GRPOConfig:
         top_k=grpo_config.get("top_k", 50),
         use_vllm=vllm_cfg.get("enabled", True),
         vllm_tensor_parallel_size=vllm_cfg.get("tensor_parallel_size", 1),
-        vllm_gpu_memory_utilization=vllm_cfg.get("tensor_parallel_size", 0.5),
-        vllm_max_model_len=vllm_cfg.get("max_model_len", data_config.get("max_prompt_length", 2048) + data_config.get("max_completion_length", 512)),
+        vllm_gpu_memory_utilization=vllm_cfg.get("gpu_memory_utilization", 0.5),
+        vllm_max_model_length=vllm_cfg.get("max_model_len", data_config.get("max_prompt_length", 2048) + data_config.get("max_completion_length", 512)),
         
         # 训练参数
         num_train_epochs=train_config.get("num_epochs", 1),
