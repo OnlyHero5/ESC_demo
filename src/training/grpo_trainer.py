@@ -234,6 +234,7 @@ def create_grpo_config(config: Dict[str, Any]) -> GRPOConfig:
         num_train_epochs=train_config.get("num_epochs", 1),
         per_device_train_batch_size=train_config.get("per_device_train_batch_size", 1),
         gradient_accumulation_steps=train_config.get("gradient_accumulation_steps", 8),
+        vllm_mode="colocate",
 
         # 学习率
         learning_rate=train_config.get("learning_rate", 1e-5),
