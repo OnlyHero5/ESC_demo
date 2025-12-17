@@ -1,0 +1,64 @@
+# ESC-Eval 评测配置
+
+
+# ESC-role 配置
+esc_role:
+  model_path: "models/ESC-Role"
+  torch_dtype: "bfloat16"
+  device_map: "auto"
+  max_new_tokens: 512
+
+# ESC-Rank 配置
+esc_rank:
+  base_model_path: "models/internlm2-chat-7b"
+  adapter_path: "models/ESC-RANK"
+  torch_dtype: "float16"
+  device_map: "auto"
+  dimensions:
+    - name: "fluency"
+      description: "流畅度"
+      adapter: "fluency_en"
+    - name: "diversity"
+      description: "多样性"
+      adapter: diversity_en"
+    - name: "empathic"
+      description: "共情能力"
+      adapter: "empathic_en"
+    - name: "suggestion"
+      description: "建议有效性"
+      adapter: "suggestion_en"
+    - name: "human"
+      description: "拟人度"
+      adapter: "human_en"
+    - name: "tech"
+      description: "情感知识"
+      adapter: "tech_en"
+    - name: "overall"
+      description: "整体偏好"
+      adapter: "overall_en"
+  
+# 评测数据配置
+data:
+  role_cards_path: "data/esc_eval/test_en"
+  output_dir: "results/esc_eval"
+
+# 对话设置
+dialogue:
+  num_epochs: 15
+  language: "en"
+
+models_to_evaluate:
+  - name: "baseline"
+    model_path: "models/Qwen3-4B"
+    base_model_path: null
+    description: "原始 Qwen3-4B"
+  
+  - name: "sft"
+    model_path: "outputs/qwen3-esconv-sft/final"
+    base_model_path: "models/Qwen3-4B"
+    description: "ESConv SFT 微调"
+
+  - name: "grpo"
+    model_path: "outputs/qwen3-extes-grpo/final"
+    base_model_path: "models/Qwen3-4B"
+    description: "ExTES GRPO 强化学习"
