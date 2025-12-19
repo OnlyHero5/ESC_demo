@@ -6,6 +6,8 @@ SFT 数据整理器
     2、构建labels，只在supporter回复计算loss
     3、支持动态 padding 和 截断
 """
+# TODO: 目前只是对话进入模型训练，策略等标签还未进入模型
+
 
 import json
 import torch
