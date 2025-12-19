@@ -7,6 +7,8 @@ ESC情感支持对话奖励函数
 3. 长度惩罚
 4. 连贯性奖励
 """
+# TODO: 格式奖励 完善，开启思考模式后的格式修正
+
 
 import re
 import threading
