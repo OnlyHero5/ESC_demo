@@ -23,6 +23,7 @@ from src.eval.metrics import compute_all_metrics, print_metrics
 def load_model(
         model_path: str,
         base_model_path: str = None,
+        sft_model_path: str = None,
         device: str = "cuda"
 ):
     """_summary_
@@ -30,6 +31,7 @@ def load_model(
     Args:
         model_path (str): 模型路径，LoRA权重路径
         base_model_path (str, optional): LoRA微调下的基础模型路径. Defaults to None.
+        sft_model_path (str, optional): SFT LoRA 路径. Defaults to None.
         device (str, optional): 运行设备. Defaults to "cuda".
     """
     
@@ -41,7 +43,6 @@ def load_model(
     if is_lora and base_model_path:
         print("加载LoRA模型...")
         print(f"基础模型：{base_model_path}")
-        print(f"LoRA 权重：{model_path}")
 
         # 加载基础模型
         base_model = AutoModelForCausalLM.from_pretrained(
@@ -50,8 +51,15 @@ def load_model(
             device_map="auto",
             trust_remote_code=True
         )
+        
+        if sft_model_path and Path(sft_model_path) != model_path:
+           print(f"检测到中间层 SFT 权重：{sft_model_path} (执行融合)")
+           base_model = PeftModel.from_pretrained(base_model, sft_model_path)
+           base_model = base_model.merge_and_unload()
 
-        # 加载LoRA 权重
+        
+        # 加载目标 LoRA 权重
+        print(f"加载目标权重：{model_path}")
         model = PeftModel.from_pretrained(base_model, str(model_path))
 
         # 加载 tokenizer
@@ -155,6 +163,7 @@ def main():
     parser = argparse.ArgumentParser(description="模型评测")
     parser.add_argument("--model_path", type=str, required=True, help="模型路径")
     parser.add_argument("--base_model_path", type=str, default=None, help="基础模型路径（LoRA模式）")
+    parser.add_argument("--sft_model_path", type=str, default=None, help="SFT 阶段的LoRA路径（将在GRPO前被融合）")
     parser.add_argument("--data_path", type=str, default="data/esconv/processed", help="数据集路径")
     parser.add_argument("--split", type=str, default="test", help="数据集划分")
     parser.add_argument("--max_samples", type=int, default=None, help="最大样本数")
@@ -169,7 +178,8 @@ def main():
 
     # 加载模型
     model, tokenizer = load_model(args.model_path,
-                                  args.base_model_path
+                                  args.base_model_path,
+                                  args.sft_model_path
                                   )
     # 加载数据集
     print(f"\n加载数据集：{args.data_path}")
