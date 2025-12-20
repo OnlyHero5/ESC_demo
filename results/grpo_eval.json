@@ -1,0 +1,21 @@
+{
+  "model_path": "outputs/qwen3-extes-grpo/final",
+  "data_path": "data/esconv/processed",
+  "split": "test",
+  "num_samples": 1790,
+  "metrics": {
+    "bleu": 2.8858589564735064,
+    "bleu_1": 22.813119921737005,
+    "bleu_2": 4.247479219629239,
+    "bleu_3": 1.4930315162096264,
+    "bleu_4": 0.6712263400668045,
+    "rouge_1": 22.157458647364457,
+    "rouge_2": 5.861513060619701,
+    "rouge_l": 18.546233812954092,
+    "distinct_1": 7.968749999999999,
+    "distinct_2": 32.74878444084279,
+    "bertscore_p": 87.10886836051941,
+    "bertscore_r": 86.46145462989807,
+    "bertscore_f1": 86.76725029945374
+  }
+}

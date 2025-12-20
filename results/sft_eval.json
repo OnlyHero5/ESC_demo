@@ -1,0 +1,21 @@
+{
+  "model_path": "outputs/qwen3-esconv-sft/final",
+  "data_path": "data/esconv/processed",
+  "split": "test",
+  "num_samples": 1790,
+  "metrics": {
+    "bleu": 2.6849423848699856,
+    "bleu_1": 23.499775078722447,
+    "bleu_2": 4.2655680557756295,
+    "bleu_3": 1.5108783239323127,
+    "bleu_4": 0.7528454704392193,
+    "rouge_1": 21.569300576573923,
+    "rouge_2": 5.733814597871859,
+    "rouge_l": 18.201750435578177,
+    "distinct_1": 8.475941211999196,
+    "distinct_2": 35.30272740254177,
+    "bertscore_p": 87.13228702545166,
+    "bertscore_r": 86.12151145935059,
+    "bertscore_f1": 86.60902380943298
+  }
+}
