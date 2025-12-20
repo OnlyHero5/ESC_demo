@@ -219,7 +219,7 @@ class ESCRank:
         # 数据类型
         dtype_map = {
             "bfloat16": torch.bfloat16,
-            "float26": torch.float16,
+            "float16": torch.float16,
             "float32": torch.float32
         }
         torch_dtype_val = dtype_map.get(torch_dtype, torch.bfloat16)
