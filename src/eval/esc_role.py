@@ -187,6 +187,7 @@ class ESCModel:
                 str(model_path),
                 torch_dtype=torch_dtype_val,
                 trust_remote_code=True,
+                device_map=device_map
             )
 
             self.tokenizer = AutoTokenizer.from_pretrained(
