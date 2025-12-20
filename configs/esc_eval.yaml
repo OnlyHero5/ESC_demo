@@ -44,7 +44,7 @@ data:
 
 # 对话设置
 dialogue:
-  num_epochs: 15
+  num_epochs: 10
   language: "en"
 
 models_to_evaluate:
