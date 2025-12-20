@@ -20,7 +20,7 @@ esc_rank:
       adapter: "fluency_en"
     - name: "diversity"
       description: "多样性"
-      adapter: diversity_en"
+      adapter: "diversity_en"
     - name: "empathic"
       description: "共情能力"
       adapter: "empathic_en"

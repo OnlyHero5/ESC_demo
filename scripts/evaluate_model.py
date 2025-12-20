@@ -41,9 +41,15 @@ def load_model(
     is_lora = (model_path / "adapter_config.json").exists()
 
     if is_lora and base_model_path:
+        print("="*50)
         print("加载LoRA模型...")
         print(f"基础模型：{base_model_path}")
-
+        print(f"目标LoRA：{model_path}")
+        
+        if sft_model_path:
+            print(f"SFT LoRA：{sft_model_path}")
+        print("="*50)
+        
         # 加载基础模型
         base_model = AutoModelForCausalLM.from_pretrained(
             base_model_path,
@@ -52,15 +58,54 @@ def load_model(
             trust_remote_code=True
         )
         
-        if sft_model_path and Path(sft_model_path) != model_path:
-           print(f"检测到中间层 SFT 权重：{sft_model_path} (执行融合)")
-           base_model = PeftModel.from_pretrained(base_model, sft_model_path)
-           base_model = base_model.merge_and_unload()
-
+        # 检查是否需要先融合 SFT LoRA （GRPO 评测场景）
+        sft_path = Path(sft_model_path) if sft_model_path else None
+        target_path = model_path.resolve()
+        sft_resolved = sft_path.resolve() if sft_path else None
         
-        # 加载目标 LoRA 权重
-        print(f"加载目标权重：{model_path}")
-        model = PeftModel.from_pretrained(base_model, str(model_path))
+        # 判断是否是GRPO 模式： sft_model_path 存在 且与model_path 不同
+        is_grpo_mode = (
+            sft_model_path is not None and
+            sft_resolved is not None and
+            sft_resolved != target_path
+        )
+        
+        if is_grpo_mode:
+            print(f"\n[GRPO模式] 先融合 SFT LoRA...")
+            print(f"  SFT 路径: {sft_model_path}")
+            
+            # 加载并融合 SFT LoRA
+            base_model = PeftModel.from_pretrained(base_model, sft_model_path)
+            base_model = base_model.merge_and_unload()
+            print(f"  ✓ SFT LoRA 已融合")
+            
+            # 清除可能残留的 PEFT 属性
+            if hasattr(base_model, 'peft_config'):
+                delattr(base_model, 'peft_config')
+            if hasattr(base_model, 'active_adapter'):
+                delattr(base_model, 'active_adapter')
+            
+            print(f"  ✓ SFT LoRA 已融合")
+            
+            # 加载 GRPO LoRA
+            print(f"\n[GRPO模式] 加载 GRPO LoRA...")
+            print(f"  GRPO 路径: {model_path}")
+            model = PeftModel.from_pretrained(base_model, str(model_path))
+            print(f"  ✓ GRPO LoRA 已加载")
+            
+            # 验证 GRPO LoRA 确实被加载
+            if hasattr(model, 'peft_config'):
+                print(f"\n[验证] PEFT 配置:")
+                for adapter_name, config in model.peft_config.items():
+                    print(f"  Adapter: {adapter_name}")
+                    print(f"    r: {config.r}")
+                    print(f"    lora_alpha: {config.lora_alpha}")
+                    print(f"    target_modules: {config.target_modules}")
+        else:
+            # 纯 SFT 模式：直接加载单个 LoRA
+            print(f"\n[SFT模式] 直接加载 LoRA...")
+            model = PeftModel.from_pretrained(base_model, str(model_path))
+            print(f"  ✓ LoRA 已加载: {model_path}")
 
         # 加载 tokenizer
         tokenizer = AutoTokenizer.from_pretrained(
@@ -87,6 +132,11 @@ def load_model(
         tokenizer.pad_token = tokenizer.eos_token
     
     model.eval()
+    
+    total_params = sum(p.numel() for p in model.parameters())
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"\n模型参数量: {total_params / 1e9:.2f}B")
+    print(f"可训练参数: {trainable_params / 1e6:.2f}M")
 
     return model, tokenizer
 
@@ -211,7 +261,9 @@ def main():
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
         results = {
-            "model_path": args.model_path,
+            "model_path": str(args.model_path),
+            "base_model_path": str(args.base_model_path) if args.base_model_path else None,
+            "sft_model_path": str(args.sft_model_path) if args.sft_model_path else None,
             "data_path": args.data_path,
             "split": args.split,
             "num_samples": len(references),
