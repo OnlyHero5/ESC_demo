@@ -7,52 +7,52 @@
   {
     "index": 1,
     "reference": "Hi, do have any issues that you would like to share with me today?",
-    "hypothesis": "Hi Nereida, how are you doing today?"
+    "hypothesis": "Hi, Nereida. How are you?"
   },
   {
     "index": 2,
     "reference": "I am sorry to hear that. So, you and your friends are not seeing eye to eye? Do you mind telling me what the issue is that yo are not agreeing on?",
-    "hypothesis": "I am sorry to hear that. Can you tell me more about the dispute?"
+    "hypothesis": "I'm sorry to hear that. Can you tell me more about the situation?"
   },
   {
     "index": 3,
     "reference": "That can be difficult and I can relate to that too. When friends do not respond the way that we feel that they should it can be really hard. Do you have any family that you are close with?",
-    "hypothesis": "I understand that you are having a difficult time with your friends. Can you tell me more about the situation?"
+    "hypothesis": "I can understand that. I am sure you have tried talking to them about it and they are not listening."
   },
   {
     "index": 4,
     "reference": "I understand the issue of money can cause a lot of problems in a relationship. I had a best friend borrow money once and it lead to her never paying it back and we stopped being friends. Do you plan on trying to talk to your friends soon? Maybe I can give you some advice on how to approach them.",
-    "hypothesis": "I understand that. I know that it is hard to make ends meet. Do you feel that you have done anything wrong in the situation?"
+    "hypothesis": "I see, that must be difficult for you. I am sure that you are trying to help your friends and you have a right to feel that you are doing the right thing."
   },
   {
     "index": 5,
     "reference": "Maybe you could chose a place to meet that is neutral, somewhere at a park or at a cafe. You can ask them to reflect on the good memories in your friendship and then express how you value them as people and friends. Does that sound like something you can try?",
-    "hypothesis": "I see. I think that it is best to have a face to face conversation with your friends. It can be easier to talk about money when you are in person. It is hard to talk about money over text."
+    "hypothesis": "That is good to hear. It shows that you care about your relationships. Do you think that you have explained your situation to them?"
   },
   {
     "index": 6,
     "reference": "That is a good idea too. Having boundaries is the healthiest part of a relationship so that neither party gets taken advantage of. Setting up lines not to cross is a great idea.",
-    "hypothesis": "That sounds like a great idea. I am sure that if you do this you will see some positive changes in your friendship."
+    "hypothesis": "I think that would be a great idea. I hope that your friendship can flourish again and that you can keep your friendship strong."
   },
   {
     "index": 7,
     "reference": "I understand that friends can disappoint us sometimes and friendships can take a lot of effort. I would recommend starting a journal. A daily journal can help you express your feelings on paper and it can help you from getting to frustrated and keeping your feelings inside.",
-    "hypothesis": "I understand that. It is a balance and I think that you are doing the right thing by being kind and generous."
+    "hypothesis": "That is a great attitude to have. It is important to be in a relationship with someone that you feel comfortable with and that you are able to express yourself. It is also good to be able to give them some space. I can tell that you are trying to find a good balance in your friendship and I think that is a great thing to do."
   },
   {
     "index": 8,
     "reference": "I am proud of you today because you reached out and have tried to find help outside of yourself. You are growing and trying to do your best.",
-    "hypothesis": "It is definitely a hard time but you are making the right choices to reach out to your friends and to keep your feelings in check. I think that you will be able to work through this issue and come out stronger."
+    "hypothesis": "I agree with that. I learned from my best friend once that sometimes we need to distance ourselves from a friend that we do not feel comfortable with."
   },
   {
     "index": 9,
     "reference": "Yes, you're growing and trying to do your best and wanting to expand your boundaries and make them clear. You have taken the right approach and are on the best track to having a successful relationship in the future. Great Job! Thank you for sharing your story with me today.",
-    "hypothesis": "You are very welcome. I am glad I could help. If you need anything else in the future, please feel free to reach out."
+    "hypothesis": "I am glad that I could help you today. You seem like a very kind and thoughtful person."
   },
   {
     "index": 10,
     "reference": "You are welcome and here for you anytime. I am able to listen and do my best to help you navigate friendships and other issues too. We are always here.",
-    "hypothesis": "You're welcome! I am glad I was able to help."
+    "hypothesis": "You are welcome. I am glad that I was able to help you today. Take care and have a wonderful day."
   },
   {
     "index": 11,
@@ -67,62 +67,62 @@
   {
     "index": 13,
     "reference": "Wow I am really sorry. Were you living with family, or with friends?",
-    "hypothesis": "I'm so sorry to hear that. That's a really tough situation."
+    "hypothesis": "I'm sorry to hear that. Losing your home can be really hard. Can you tell me more about how you are feeling?"
   },
   {
     "index": 14,
     "reference": "So you were thrown out from a place you were renting? Did you do anything wrong?",
-    "hypothesis": "I can understand how you feel. Losing a home is a really stressful thing."
+    "hypothesis": "I see. So you were renting a room from someone?"
   },
   {
     "index": 15,
     "reference": "Wow that is illegal. Do you know that there are organisations that can help you with this sort of thing?",
-    "hypothesis": "That sounds unfair. I know you can't control someone else's actions."
+    "hypothesis": "Oh wow that is not fair. I would be upset too. How long were you renting the room?"
   },
   {
     "index": 16,
     "reference": "I think that that was bad advice to be honest. I think that you are being ripped off. Do not worry, there are things that you can do about it!",
-    "hypothesis": "I think you should talk to a lawyer. It is your home and you were not evicted for any reason."
+    "hypothesis": "I think you should try to find a organisation that can help you."
   },
   {
     "index": 17,
     "reference": "You are definitely entitled to it. Do you have somewhere else to live in the meantime?",
-    "hypothesis": "I am glad you feel that way. I would be happy to help you with that. Do you know how to get started?"
+    "hypothesis": "I think that you should contact the organisation that handles rent issues. Have you tried that?"
   },
   {
     "index": 18,
     "reference": "It's a precarious position to be in, especially during a pandemic. Do you have any family members who might help?",
-    "hypothesis": "That's a start. I think that it is really important that you get a room for yourself, even if it is temporary."
+    "hypothesis": "Well that is a start. I would be really worried about that. Do you think that you could afford to pay rent?"
   },
   {
     "index": 19,
     "reference": "Would any family members be prepared to loan you money or a vehicle?",
-    "hypothesis": "I think that you should definitely call her. You have to start somewhere."
+    "hypothesis": "I think that you need to do something about this asap. Maybe you could take out a loan?"
   },
   {
     "index": 20,
     "reference": "How much stuff do you have that needs to be moved?",
-    "hypothesis": "That sounds like a great idea."
+    "hypothesis": "That is a good idea. I think that that would help. Do you think that you could then ask her to help you move?"
   },
   {
     "index": 21,
     "reference": "Try not to worry too much - I was in this position once myself and it did all turn out for the best though it was very scary at the time.",
-    "hypothesis": "So you need to move a lot of stuff. That is going to be expensive."
+    "hypothesis": "That's a lot! Do you have any friends who might help you?"
   },
   {
     "index": 22,
     "reference": "I think it would be a good idea for you to try and get medical help for your depression.",
-    "hypothesis": "I totally understand how you are feeling. You are not alone."
+    "hypothesis": "I can understand that. Have you thought about calling a counsellor?"
   },
   {
     "index": 23,
     "reference": "I wish you all the very best with it - there is help out there!",
-    "hypothesis": "I think that it would be a good idea to reach out to your local council for help too."
+    "hypothesis": "It's always good to remember that we are not alone."
   },
   {
     "index": 24,
     "reference": "Enjoy the rest of your day :)",
-    "hypothesis": "I am glad that you are feeling better and that you have some ideas."
+    "hypothesis": "I am really glad you are reaching out for help. It takes courage to do that."
   },
   {
     "index": 25,
@@ -132,42 +132,42 @@
   {
     "index": 26,
     "reference": "I'm sorry to hear that. When did he break up with you?",
-    "hypothesis": "I'm sorry to hear that. I can understand how you'd be upset. Can you tell me more about what happened?"
+    "hypothesis": "I'm sorry to hear that. Can you tell me more about what happened?"
   },
   {
     "index": 27,
     "reference": "That seems very cowardly to break up with you over text after being together for a year.",
-    "hypothesis": "I can understand why you would be upset. Breakups are really hard."
+    "hypothesis": "That's awful. I can't imagine how you must be feeling."
   },
   {
     "index": 28,
     "reference": "That is a shame. I can understand his perspective if marriage is not something he wanted but it seems hurtful to string you along in  a relationship if your life goals were very different. Was your differing opinions on marriage the only reason he gave?",
-    "hypothesis": "I understand, that is a very big deal to make. It's a very big decision to make."
+    "hypothesis": "I can understand that you want to marry, but he is right in a way. Marriage is a big step to take. It's good that you have a year together."
   },
   {
     "index": 29,
     "reference": "That sounds very difficult. How have you been coping with the break up?",
-    "hypothesis": "I can understand your feelings. Have you spoken to him about this?"
+    "hypothesis": "That is really hurtful to be blindsided like that. I can understand how you are feeling. I have been through something similar to this."
   },
   {
     "index": 30,
     "reference": "I think this is to be expected from a very fresh break-up. I know that when I broke up with my partner, I spent at least a few days crying and trying to figure out what my life would be now.",
-    "hypothesis": "I see. That sounds like a lot of stress and sadness. Have you thought about talking to a friend or family member about your feelings?"
+    "hypothesis": "I understand that it is very hard to see someone you care about so hurtful. I have been in a similar situation when my partner left me. I had to move out of our home and I was very depressed. I found a support group that helped me to process my feelings."
   },
   {
     "index": 31,
     "reference": "I tried to focus on other areas of my life and to critically reflect on my relationship. Largely, I threw myself into my work and tried to better that aspect of my life, and hung out with people that I knew cared about me. Both of those are very good distractions which you might be able to use.",
-    "hypothesis": "I tried to keep my mind off of it by doing things I like to do, like running, going to concerts, and hanging out with my friends. I also started volunteering at a local soup kitchen. It was a very difficult time for me and I am still reeling from the break-up."
+    "hypothesis": "I found a few things to distract myself from the pain. I found that a new hobby, or something I was going to do anyway, would help. I also found that being around people who were happy and laughing made me happy too."
   },
   {
     "index": 32,
     "reference": "I think one day off to get the crying out of your system is a good emotional cleanse. We all need time to self care and look after our emotions. Maybe going for a walk or doing some yoga, to place your focus on something rather than being boxed into a room may help to shift your focus.",
-    "hypothesis": "I think that it is normal to be upset and to want to spend time with yourself. It's also normal to be upset and not want to do anything. I think that it is important to allow yourself to feel and cry and to not punish yourself for your feelings."
+    "hypothesis": "I'm sorry to hear that. It might be good to take some time to do what you want to do for yourself. I'd suggest a long walk or maybe a nice dinner."
   },
   {
     "index": 33,
     "reference": "You are more than welcome. I hope that you feel better by being outside.",
-    "hypothesis": "That sounds like a great idea! I wish you all the best. Take care!"
+    "hypothesis": "I'm glad! I hope you feel better and have a great day."
   },
   {
     "index": 34,
@@ -177,77 +177,77 @@
   {
     "index": 35,
     "reference": "I am so sorry to hear that you lost your job. Did you work there for a long time?",
-    "hypothesis": "I'm sorry to hear that. Losing a job can be really difficult. Can you tell me more about how you're feeling?"
+    "hypothesis": "I'm sorry to hear that. Losing a job can be really tough. Can you tell me more about how you're feeling?"
   },
   {
     "index": 36,
     "reference": "I can understand that being used to a routine and then suddenly losing that can cause a lot of depression and confusing for you. Are you feeling lost?",
-    "hypothesis": "I can understand how frustrating that must be. Losing a job is really hard."
+    "hypothesis": "That's really tough. I can understand how you would feel depressed about it."
   },
   {
     "index": 37,
     "reference": "I am proud of you taking the step to reach out today and share your feelings with me. That takes a lot of strength on your part.",
-    "hypothesis": "I know that can be really hard. Have you thought about looking for a new job?"
+    "hypothesis": "I am glad you reached out and are seeking support. Have you tried to reach out to friends or family?"
   },
   {
     "index": 38,
     "reference": "You're welcome and yes I had a similar situation about a year ago. I had worked for the same company for 10 years and they laid me off. I was blindsided and very upset and felt depressed also. I started looking for jobs and found a better one that paid more, so it worked out for the best in the end.",
-    "hypothesis": "I have been in that situation too. I was laid off from my job due to the pandemic. I took some time to grieve, but I also took steps to move forward."
+    "hypothesis": "I have lost my job due to the pandemic. I lost my job in March 2020. I was a teacher. I have been looking for a job ever since. I have been able to find work in the food industry and am doing well enough. I am still looking for work that will utilize my skills as a teacher."
   },
   {
     "index": 39,
     "reference": "I understand that you are feeling a deep sadness and a situational depression. I believe that when you takes steps forward and start applying for jobs then you will see a lot of opportunities are out there. Do you have any family that can be supportive to you through this difficult time?",
-    "hypothesis": "I think it's a good idea to apply for new jobs. You have to keep searching until you find something that works for you. It's hard, but it's doable."
+    "hypothesis": "I think that you can come out of this depression and find something new. You have been in this job for a long time and have a lot of experience."
   },
   {
     "index": 40,
     "reference": "You're welcome. Often sometimes local charities will help with putting together a resume and helping find you a job. Maybe you could reach out for assistance in creating a new resume?",
-    "hypothesis": "You're welcome. I am here to listen and support you. Is there anything else that you'd like to discuss?"
+    "hypothesis": "You're welcome. I am glad I could support you today. Is there anything else I can help you with?"
   },
   {
     "index": 41,
     "reference": "I would recommend looking for an local group that help assist creating new resumes. Nonprofits have people who volunteer.",
-    "hypothesis": "I would definitely suggest that. I have found that when I am feeling down I need to take a step back and do something that will take my mind off of the situation. I like to play my guitar. It has always been a great way for me to relax and clear my mind."
+    "hypothesis": "I would recommend starting with your family and friends first and see if they can help you with job searching."
   },
   {
     "index": 42,
     "reference": "You're welcome, I would also suggest reaching out to your friends and family for support during this challenging time. You are a faithful employee and have a great future ahead.",
-    "hypothesis": "You're welcome. I am glad that you are reaching out and taking steps to improve your situation."
+    "hypothesis": "You're welcome. It's been a pleasure talking with you today. I hope you feel better soon."
   },
   {
     "index": 43,
     "reference": "You can always reach out to me and I can providing  you a place to vent and express yourself and the feelings that you are having. Hopefully you feel like a plan to begin apply for new jobs is a start forward.",
-    "hypothesis": "It's a very difficult situation and I understand that. I had to work for 2 years after my layoff and that was difficult. But I got my job back and it was much better."
+    "hypothesis": "I understand, it is hard to feel as though you are a failure. I was feeling that way for a long time after I was laid off. I had to start over. I had to find a way to make myself feel better and find a way to make myself feel that I was still valuable."
   },
   {
     "index": 44,
     "reference": "Thank you for being so strong and reaching out today. Have a great rest of your day.",
-    "hypothesis": "You're welcome. I'm glad I was able to help you."
+    "hypothesis": "You're welcome. I am glad to hear that. I am here to listen and provide support."
   },
   {
     "index": 45,
     "reference": "I would be happy to continue if you have anything else you would like to say and of not kindly use the feature to finishing this session.",
-    "hypothesis": "You're welcome. Take care and stay strong."
+    "hypothesis": "You're welcome. Take care."
   },
   {
     "index": 46,
     "reference": "Thank you, the feature is provided to you and you alone. The button is for you to confirm you have finished and quit the session and would like to continue with your day. However, I am happy to talk as long as you are if you don't want to do that, I am unable to on my end.",
-    "hypothesis": "You're welcome. Have a wonderful day. Good luck."
+    "hypothesis": "Thank you for being open and honest with me today. Take care and stay strong."
   },
   {
     "index": 47,
     "reference": "Thank you, but it is actually red and located under your blue button feature. Thanks again for your time today.",
-    "hypothesis": "No problem at all. I am glad that I was able to provide you some support."
+    "hypothesis": "No problem at all. Take care and have a great day."
   },
   {
     "index": 48,
     "reference": "I understand however that is not the case. I do not have the feature that will submit and therefore complete. Please use the red button that saying finish/quit in order to proceed.",
-    "hypothesis": "You're welcome. I wish you all the best."
+    "hypothesis": "You're welcome, I am glad that I was able to support you. Have a wonderful day. Goodbye."
   },
   {
     "index": 49,
     "reference": "Hello how is your day today?",
-    "hypothesis": "Hello! How are you doing today?"
+    "hypothesis": "Hi there! How are you feeling today?"
   },
   {
     "index": 50,
@@ -257,47 +257,47 @@
   {
     "index": 51,
     "reference": "I am very sorry to hear that i have also lost a pet earlier this year his name was fish and was only 3 years old he unfortunately passed due to liver cancer. It was a very trying experience but slowly the pain of his passing has got a little bit easier.",
-    "hypothesis": "I understand, it's very hard to lose a pet. I have lost my dog, and it is very hard."
+    "hypothesis": "I am so sorry to hear that. I had a dog for 10 years and when he died I had to go through the same thing. I think that it will take some time for you to get used to the change."
   },
   {
     "index": 52,
     "reference": "Have you tried talking about this loss to friends of family?",
-    "hypothesis": "I am sure you can do it, you need to give yourself some time to grieve."
+    "hypothesis": "I am sure you are feeling sad but I am sure that you will be able to get through this."
   },
   {
     "index": 53,
     "reference": "What have your feelings been like after the passing of your cat?",
-    "hypothesis": "I understand that it is very difficult to talk to someone about your loss, but I think that it would be helpful to try and talk to someone about it."
+    "hypothesis": "I would recommend that you try and talk to people about your feelings. I found it helpful to talk to my friends about my loss as it really helped me to feel a little bit better."
   },
   {
     "index": 54,
     "reference": "Those are completely valid feelings to have at this time",
-    "hypothesis": "It is very normal to feel this way. I have found that talking to people who understand what we are going through can help us get through it."
+    "hypothesis": "I am so sorry to hear that. It can be hard to find a way to move forward but i know you can do it."
   },
   {
     "index": 55,
     "reference": "Have you considered getting a small reminder of your cat perhaps a small shrine or tribute to him/her?",
-    "hypothesis": "I would suggest you reach out to a pet loss support group online. I think that could be a good way to talk to others about your loss."
+    "hypothesis": "Have you tried looking into online groups or forums that are for people who have lost pets?"
   },
   {
     "index": 56,
     "reference": "Her I apologize for the confusion.",
-    "hypothesis": "It can help a lot to have a small reminder of him/her"
+    "hypothesis": "I have a small fish tank that my cat used to go into, I have a small picture of him on the tank and a small plate that has his name on it with a small piece of his fur on it."
   },
   {
     "index": 57,
     "reference": "Expressing your emotion is very healthy for example maybe taking up a new hobby or trying something new that scares or excites you to get your mind off of this difficult time.",
-    "hypothesis": "I understand that but I think that it might be a good way to keep her memory alive."
+    "hypothesis": "I understand that I am sorry to hear that"
   },
   {
     "index": 58,
     "reference": "What was your favorite genre of video games?",
-    "hypothesis": "Maybe playing games with friends?"
+    "hypothesis": "I have found that getting a new pet has helped me a lot with dealing with loss of my previous pet. I am sure that your feelings are valid but I am sure that they will pass in time."
   },
   {
     "index": 59,
     "reference": "Have you considered playing again possibly joining an online team and competing in tournaments?",
-    "hypothesis": "I think you would enjoy those types of games but it would be good to give them a try and see if you like them."
+    "hypothesis": "I know that you can do it! I am very confident in you!"
   },
   {
     "index": 60,
@@ -312,7 +312,7 @@
   {
     "index": 62,
     "reference": "I can understand that. It must be an important exam for you. Do you enjoy calculus?",
-    "hypothesis": "I can understand how you're feeling. Calculus can be a tough class. Have you thought about seeking help?"
+    "hypothesis": "I see. So you're nervous about your upcoming college semester? I understand how that can be stressful. Can you tell me more about your specific concerns?"
   },
   {
     "index": 63,
@@ -322,181 +322,181 @@
   {
     "index": 64,
     "reference": "A B is a great result!",
-    "hypothesis": "I see. Well, you have a degree goal. What are you majoring in?"
+    "hypothesis": "I see. That sounds difficult. Have you talked to your professor about this?"
   },
   {
     "index": 65,
     "reference": "Are there any revision courses that you can access to help refresh your skills?",
-    "hypothesis": "I would not worry too much about it. I think you can do it."
+    "hypothesis": "I have had to take a course I wasn't sure about, but I was able to do it. It's hard to do, but you can do it!"
   },
   {
     "index": 66,
     "reference": "This pandemic has really made it difficult to get anything done hasn't it.",
-    "hypothesis": "I think you should look into that, and maybe try to find a few friends who have taken the course already."
+    "hypothesis": "Ah, I understand. It must be really hard to find someone to talk to."
   },
   {
     "index": 67,
     "reference": "Do you know of anyone else who is looking to take the course that you got revise together with?",
-    "hypothesis": "Have you tried to get a tutor in advance of your course starting?"
+    "hypothesis": "Is there anything else that you could do to help you prepare?"
   },
   {
     "index": 68,
     "reference": "I always find it easier to work through things like this with someone else.",
-    "hypothesis": "I would really encourage you to try to take this course and see what happens. I think you can do it!"
+    "hypothesis": "I have done online courses before and they were very useful."
   },
   {
     "index": 69,
     "reference": "There seem to be some really good online courses out there. It might be worth sending out enquiries to a number of tutors, asking them to get in touch as soon as they are free, and in the meantime working through something online to help build up your confidence?",
-    "hypothesis": "I completely understand. I have been feeling the same way as well."
+    "hypothesis": "I understand. I think that it's very reasonable to be worried."
   },
   {
     "index": 70,
     "reference": "I bet once you get into it again it will all come back to you. Sometimes getting started is the hardest part.",
-    "hypothesis": "I'm glad you think so. I really think it's important to get your confidence up for this."
+    "hypothesis": "I hope you have a good semester! It sounds like you're a hard worker and will do your best."
   },
   {
     "index": 71,
     "reference": "I think that if you got a B once, you can do it again, and if you really want it, which you clearly do, you can do anything! Aim for an A, you can do it!",
-    "hypothesis": "Absolutely! I believe in you! I know you will do great. I've always been pretty bad at numbers myself!"
+    "hypothesis": "I believe in you! You're a strong and determined person."
   },
   {
     "index": 72,
     "reference": "And you too, good luck!",
-    "hypothesis": "You're welcome. I'm glad I was able to help. Have a great day too!"
+    "hypothesis": "You're welcome! I'm glad I could help. Take care and have a good day too!"
   },
   {
     "index": 73,
     "reference": "Hi there I am so sorry",
-    "hypothesis": "Yes, I'm here. How are you doing today?"
+    "hypothesis": "Hi there! How are you doing today?"
   },
   {
     "index": 74,
     "reference": "was a little distracted but I am here.  How are you feeling?",
-    "hypothesis": "How are you?"
+    "hypothesis": "How are you today?"
   },
   {
     "index": 75,
     "reference": "I am sorry to hear that.  Do you want to tell me the story? I promise it won't be weird. I've been through a lot.",
-    "hypothesis": "I am so sorry to hear that.  That is really hard.  How long have you been together?"
+    "hypothesis": "I am so sorry to hear that.  It can be a hard time.  Can you tell me more about what happened?"
   },
   {
     "index": 76,
     "reference": "Oh yeah?  Was this a friend, partner, family member?",
-    "hypothesis": "I am sorry to hear that.  Do you want to tell me the story? I promise it won't be weird. I've been through a lot."
+    "hypothesis": "I can tell you are sad so I am really sorry to hear that."
   },
   {
     "index": 77,
     "reference": "I am so sorry to hear that.  Have you tried anything to address the situation?  Perhaps bringing it up to him subtlly?  Or even just asking how HE is, to see if he has siomething he wants to talk about.",
-    "hypothesis": "I am so sorry to hear that.  I had a boyfriend that I was with for 10 years and we broke up in December.  It was terrible."
+    "hypothesis": "Oh I'm so sorry.  Breakups are so hard.  I've been through a few.  It's really hard when they come at holidays.  I am really sorry to hear that."
   },
   {
     "index": 78,
     "reference": "Oh goodness, yes.  I actually was ghosted by the woman I thought was my soulmate... on my birthday.  It was... strategic of her.",
-    "hypothesis": "I have not been through a breakup during the holidays but I have had breakups in general.  It is hard but there are ways to get through it."
+    "hypothesis": "Yes I have.  They are so hard.  I was through with my ex in November 2013.  It was really hard."
   },
   {
     "index": 79,
     "reference": "So you haven't heard from him since the end of November?",
-    "hypothesis": "I know it can be hard.  I have found that if I don't try to get answers I get none, and if I try to get answers, I get nothing.  I just accept that there is a reason.  I am sure it was hard.  You sound like a very kind person."
+    "hypothesis": "I understand.  It is hard to get over a breakup.  I would suggest trying to take up a new hobby, or get into some exercise.  That can help you get your mind off of it.  It can also help you get your energy up."
   },
   {
     "index": 80,
     "reference": "Is there a family member or trusted friend you could reach out to?  Has he logged into or posted on any of his social media accounts?",
-    "hypothesis": "Oh no, I'm so sorry.  I can't imagine how you are feeling.  I think you have done everything you can do.  It's not your fault, you did everything you could.  I have had to accept that I have to move on.  It is a hard thing to do.  I've learned to take care of myself, to be kind to myself.  I'm not sure why he does this, but I think it might be something he has to do.  If I were in his shoes, I would feel the same way.  I know it's hard to not think about him, but it is important to focus on yourself.  Do you have any friends you could talk to?"
+    "hypothesis": "That is scary.  Do you have friends or family you can confide in?  Or have you tried to reach out to him on social media?"
   },
   {
     "index": 81,
     "reference": "Is he close to you or is this a long distance type thing?  Just for context's sake. No judgment of course.",
-    "hypothesis": "I am so sorry.  I can't imagine how hard that is.  I think that you are doing the right thing by being honest with yourself and accepting that this is over.  I know I would feel awful.  I'm so sorry.  You deserve to be happy.  I hope that you can find someone who will be there for you."
+    "hypothesis": "I see.  It sounds like you have been through a lot of stress.  I can tell.  I have been through a lot of stress too.  I have a few strategies that have helped me.  First of all, I am really good at making a list of things I want to do.  I have a big list of things I want to do that I never get around to.  It's a good way to get your mind off of it.  It is also a way to focus on the positive things.  I have found that it is good to focus on the things you can control.  You can control your own happiness.  You can control your own mood.  You can control your own actions.  So I have found it good to make a list of things you want to do.  I find that it helps me get my mind off of things and to focus on the good things.  It is also a way to take control of the situation.  I find that it also helps me to focus on the things I can control.  I find that it helps me to focus on the things that I can control.  It also helps me to feel more empowered.  I also find that it helps me to feel more positive.  I find that it helps me to feel less negative.  I find that it helps me to feel less angry.  I find that it helps me to feel less frustrated.  I find that it helps me to feel less depressed.  I find that it helps me to feel less anxious.  I find that it helps me to feel less stressed.  I find that it helps me to feel less overwhelmed.  I find that it helps me to feel less burdened.  I find that it helps me to feel less trapped.  I find that it helps me to feel less isolated.  I find that it helps me to feel less alone.  I find that it helps me to feel less depressed.  I find that it helps me to feel less anxious.  I find that it helps me to feel less stressed.  I find that it helps me to feel less overwhelmed.  I find that it helps me to feel less burdened.  I find that it helps me to feel less trapped.  I find that it helps me to feel less isolated.  I find that it helps me to feel less alone.  I find that it helps me to feel less depressed.  I find that it helps me to feel less anxious"
   },
   {
     "index": 82,
     "reference": "Well, it can also be... easier to open up to someone and the relationships can be very intimate, even from a distance.  So your feelings are valid, 100%.",
-    "hypothesis": "I understand, I've been through a long distance relationship myself.  I understand the stress.  I understand the loneliness.  I understand the feeling of being ignored.  I understand the feeling of not being able to touch, hold, or comfort.  And I understand the feeling of being dumped.  I've been there."
+    "hypothesis": "I see.  I had a long distance relationship once.  I was 19 and he was 23.  I had to live in another city for 6 months, but I was still able to be friends with him.  It was a very healthy relationship."
   },
   {
     "index": 83,
     "reference": "Hi, thank you for chatting with me.",
-    "hypothesis": "Of course, I'm here to listen. Can you tell me more about your childhood trauma?"
+    "hypothesis": "Of course, I'm here to listen. Can you tell me more about how your childhood trauma is affecting your life with your child and spouse?"
   },
   {
     "index": 84,
     "reference": "From what I understand, you are struggling with childhood trauma and this is affecting everyday life with your child and spouse.",
-    "hypothesis": "I can understand how you are feeling. Can you tell me more about your childhood trauma?"
+    "hypothesis": "I understand that you are having a hard time with your spouse and child. Can you tell me more about your situation?"
   },
   {
     "index": 85,
     "reference": "That is a really hard situation to be in, but I know that you can have that conversation with your spouse!",
-    "hypothesis": "It is completely understandable to feel this way. It is very difficult to talk about such a personal topic with a partner."
+    "hypothesis": "I understand how difficult that can be. I think you should tell your spouse that you are willing to talk about your childhood."
   },
   {
     "index": 86,
     "reference": "Does he have any idea about any of the trauma you have experienced?",
-    "hypothesis": "Have you thought about how to start the conversation with your spouse?"
+    "hypothesis": "Have you tried talking to your spouse about your feelings on this?"
   },
   {
     "index": 87,
     "reference": "Just listening to you talk I can tell this is something that is making you extremely anxious.",
-    "hypothesis": "I can tell that you are really anxious about the situation."
+    "hypothesis": "It sounds like you have a very rough idea of what you are trying to say."
   },
   {
     "index": 88,
     "reference": "One thing I would suggest is after writing everything down that you rehearse it for a while in front of a mirror and picture that you are talking to your husband while you are doing this.",
-    "hypothesis": "I understand that, I have had similar issues where I ramble and don't know what to say."
+    "hypothesis": "I can understand why you are feeling that way. It can be really hard to talk about something like that."
   },
   {
     "index": 89,
     "reference": "Have you reached out to other people or a group of people who may have experienced the same type of trauma you have?",
-    "hypothesis": "It is normal to have panic attacks when thinking about the past, but I think that you will be able to do it."
+    "hypothesis": "I understand that. I had a similar situation where I was struggling with my anxiety and depression."
   },
   {
     "index": 90,
     "reference": "I have also experienced childhood trauma in my past and it was extremely hard to get through. I found talking to people who went through the same thing helped a lot.",
-    "hypothesis": "I would suggest that you try to reach out to groups online. There are a lot of groups on facebook and other websites that can help people with trauma and mental health issues."
+    "hypothesis": "I think that it would be very helpful to do that."
   },
   {
     "index": 91,
     "reference": "After speaking with others in the same situation, I was able to convey this to my loved ones in a better way and I was much more comfortable with it,",
-    "hypothesis": "That sounds like a great idea!"
+    "hypothesis": "I know that it is difficult to reach out, but it will be worth it."
   },
   {
     "index": 92,
     "reference": "You are very welcome! Thank you for chatting with me today!",
-    "hypothesis": "You are welcome! I am glad I could help."
+    "hypothesis": "You're welcome! I am glad I could be of some help."
   },
   {
     "index": 93,
     "reference": "I am glad I could help, if you ever need anything else don't be afraid to contact us back!",
-    "hypothesis": "You are very welcome! I am glad I could help you!"
+    "hypothesis": "You too! Take care!"
   },
   {
     "index": 94,
     "reference": "Hello there, how are things with you today?",
-    "hypothesis": "Hi there! How are you today?"
+    "hypothesis": "Hi there! How are you doing today?"
   },
   {
     "index": 95,
     "reference": "I am not so bad. Is there anything you'd like to discuss with me today?",
-    "hypothesis": "I'm doing well, thank you. I'm glad to hear that. How can I help you today?"
+    "hypothesis": "I'm doing well, thank you. I'm glad to hear that. What's been going on?"
   },
   {
     "index": 96,
     "reference": "Are you not happy in your current job? It's a bad time to be job hunting really.",
-    "hypothesis": "I understand. Finding a higher paying job can be a difficult thing to do."
+    "hypothesis": "I understand that. Finding a higher paying job can be stressful. Can you tell me more about what you're going through?"
   },
   {
     "index": 97,
     "reference": "What sort of work are you looking for? Would you be prepared to take something outside of your usual field?",
-    "hypothesis": "I understand. It is difficult to get back into the job market."
+    "hypothesis": "I am sorry to hear that. I have been out of work myself recently and can empathise."
   },
   {
     "index": 98,
     "reference": "Sometimes it is necessary to take a temporary job that you don't really like just to make ends meet alas.",
-    "hypothesis": "I hear you. It's hard to be in the position where you have to accept less than you want."
+    "hypothesis": "I see. It's very hard to find work right now, I have been out of work myself for quite a while."
   },
   {
     "index": 99,
     "reference": "Well true but if there's no work out there that will help build your career you kind of don't have much choice ;)",
-    "hypothesis": "I think you need to take a pragmatic view. You need to eat. If you don't have money to pay your rent and utilities, then you can't build a career."
+    "hypothesis": "I completely understand that, but I have found that taking temporary work is a way to gain experience in a new field."
   }
 ]
