@@ -39,7 +39,7 @@ esc_rank:
   
 # 评测数据配置
 data:
-  role_cards_path: "data/esc_eval/test_en"
+  role_cards_path: "data/esc_eval/test_en.json"
   output_dir: "results/esc_eval"
 
 # 对话设置
