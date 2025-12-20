@@ -344,16 +344,38 @@ class ESCRank:
         """生成评分回复"""
         query = messages[-1]["content"]
 
-        # 调用模型生成
-        response, _ = self.peft_model.chat(
-            self.tokenizer,
-            query,
-            do_sample=False,
-            temperature=0.0,
-            history=[]
+        # 构建输入 - 使用 apply_chat_template 而不是 .chat() 方法
+        # 这样可以避免 KV Cache 不一致的问题
+        chat_messages = [{"role": "user", "content": query}]
+        
+        text = self.tokenizer.apply_chat_template(
+            chat_messages,
+            tokenize=False,
+            add_generation_prompt=True
         )
+        
+        inputs = self.tokenizer(
+            [text],
+            return_tensors="pt"
+        ).to(self.peft_model.device)
+        
+        # 使用 generate 方法，不使用 cache
+        with torch.no_grad():
+            outputs = self.peft_model.generate(
+                **inputs,
+                max_new_tokens=512,
+                do_sample=False,
+                temperature=None,  # greedy decoding
+                top_p=None,
+                use_cache=False,  # 禁用 KV Cache 避免位置编码错误
+                pad_token_id=self.tokenizer.eos_token_id
+            )
+        
+        # 解码生成的文本
+        generated_ids = outputs[0][inputs["input_ids"].shape[1]:]
+        response = self.tokenizer.decode(generated_ids, skip_special_tokens=True)
        
-        return response
+        return response.strip()
     
     def score_all_dialogues(
             self,

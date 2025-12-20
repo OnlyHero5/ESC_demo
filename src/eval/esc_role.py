@@ -246,6 +246,9 @@ class ESCModel:
         del self.model
         torch.cuda.empty_cache()
         print("ESC 模型已经卸载")
+    
+    # def _strip_think(text: str) -> str:
+
 
 
 
