@@ -1,0 +1,29 @@
+{
+    "0": {
+        "fluency": -1,
+        "diversity": 2,
+        "empathic": 3,
+        "suggestion": 2,
+        "human": 4,
+        "tech": 3,
+        "overall": 3
+    },
+    "1": {
+        "fluency": -1,
+        "diversity": 2,
+        "empathic": 3,
+        "suggestion": 3,
+        "human": 3,
+        "tech": 3,
+        "overall": 3
+    },
+    "2": {
+        "fluency": -1,
+        "diversity": 2,
+        "empathic": 3,
+        "suggestion": 3,
+        "human": 4,
+        "tech": 3,
+        "overall": 3
+    }
+}
